@@ -1,0 +1,47 @@
+const stockData = [
+  {
+    symbol: "INFY",
+    Name: "Infosys",
+    Sector: "IT",
+    TechincalRating: 5,
+    ConCallAnalysis:
+      "Growth Factors/Numbers:\n- Triumph launch booking numbers are encouraging, indicating positive customer response.\n- Retail growth in Q1 is 19%, with a gain of 2% market share in the 125cc plus segment, leading to positive implications for revenue and EBITDA.\n- Domestic revenues register the biggest ever quarter with double-digit growth trajectory across all businesses.\n- Exports show double-digit volume growth, with premium brand exports growing over 40% sequentially.\n- Africa shows progress in exports, leading to overall improvement in forex availability.\n\nNon-Growth Factors/Numbers:\n- Planning horizon is currently only for FY '24, with a rolling plan addressing quarter 1.\n- The industry faced decline in April but started recording growth at a retail level in May and June.\n- The reported growth from a billing perspective might be impacted by a comparative skew towards quarter 2 in the base quarter.\n- Commodity cost inflation and negative mix impact lead to a dilution in gross margin and overall EBITDA.\n- There may be a potential impact on profitability due to EV volumes, which may not be margin accretive or could have negative margins.\n\nExplanation:\nThe growth factors/numbers highlight positive performance and progress in various aspects of the business. The Triumph launch shows encouraging booking numbers, indicating customer interest. Retail growth in Q1 is strong, with market share gains in the key segment, leading to positive revenue and EBITDA implications. Domestic revenues register the biggest ever quarter, and exports show double-digit volume growth, especially in the premium brand category. Africa shows progress in exports, and forex availability improves gradually.\n\nOn the other hand, the non-growth factors/numbers indicate certain limitations or challenges. The planning horizon is currently limited to FY '24, with a rolling plan addressing only quarter 1. The industry faced decline in April but saw growth in May and June. Reported growth from a billing perspective might be impacted by a comparative skew towards quarter 2 in the base quarter. Commodity cost inflation and negative mix impact lead to a dilution in gross margin and overall EBITDA. Additionally, the potential impact on profitability is highlighted due to EV volumes, which may not be margin accretive or could have negative margins.",
+    Img: "https://example.com/infy-image.jpg",
+  },
+
+  {
+    symbol: "TCS",
+    Name: "Tata Consultancy Services",
+    Sector: "IT",
+    TechincalRating: 4,
+    ConCallAnalysis: "Meeting expectations",
+    Img: "https://example.com/tcs-image.jpg",
+  },
+  {
+    symbol: "WIPRO",
+    Name: "Wipro Limited",
+    Sector: "IT",
+    TechincalRating: 3,
+    ConCallAnalysis: "Steady growth in Q3",
+    Img: "https://example.com/wipro-image.jpg",
+  },
+  {
+    symbol: "HCLTECH",
+    Name: "HCL Technologies",
+    Sector: "IT",
+    TechincalRating: 4,
+    ConCallAnalysis: "Positive outlook for next quarter",
+    Img: "https://example.com/hcltech-image.jpg",
+  },
+  {
+    symbol: "TECHM",
+    Name: "Tech Mahindra",
+    Sector: "IT",
+    TechincalRating: 3,
+    ConCallAnalysis: "Improvement in margins",
+    Img: "https://example.com/techm-image.jpg",
+  },
+  // Add more objects following the same pattern as needed
+];
+
+export { stockData };

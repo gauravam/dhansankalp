@@ -1,0 +1,85 @@
+import { useRouter } from "next/router";
+import { stockData } from "@/constants/stockdata"; // Check the import path
+import Image from "next/image";
+
+// Ensure that the component name matches its file name and the way it's imported
+import StockSnapshot from "@/components/stockSnapshot";
+
+const Stock = () => {
+  const router = useRouter();
+  const { stock } = router.query;
+
+  const temp = stockData[0];
+  console.log(temp);
+
+  return (
+    <div>
+      <div className="flex flex-wrap justify-center">
+        {stockData.map(
+          (
+            stockItem,
+            index // Changed variable name to avoid conflict
+          ) => (
+            <StockSnapshot
+              key={index}
+              symbol={stockItem.symbol}
+              name={stockItem.Name}
+              sector={stockItem.Sector}
+              technicalRating={stockItem.TechincalRating}
+              conCallAnalysis={stockItem.ConCallAnalysis}
+              img={stockItem.Img}
+            />
+          )
+        )}
+      </div>
+
+      <div class="bg-gray-100">
+        <div class="max-w-lg mx-auto my-10 bg-white rounded-lg shadow-md p-5">
+          <Image
+            class="rounded-full mx-auto"
+            src="/next.svg"
+            alt="Profile picture"
+            width={60}
+            height={60}
+          />
+          <h2 class="text-center text-2xl font-semibold mt-3">{temp.Name}</h2>
+          <p class="text-center text-gray-600 mt-1">{temp.Sector}</p>
+
+          <div class="flex items-center justify-center mt-5 p-10">
+            <div class="text-center">
+              <h3 class="text-xl font-semibold">Bio</h3>
+              <p class="text-gray-600 mt-2">{temp.ConCallAnalysis}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4  p-4">
+        <div class="bg-red-500 h-100 sm:h-50 md:h-36 lg:h-24 xl:h-20 col-span-2 row-span-4">
+          {temp.Name}
+        </div>
+        <div class="bg-blue-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">2</div>
+        <div class="bg-green-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">3</div>
+        <div class="bg-yellow-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">4</div>
+        <div class="bg-purple-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">5</div>
+        <div class="bg-indigo-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">
+          {temp.ConCallAnalysis}
+        </div>
+        <div class="bg-pink-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">7</div>
+        <div class="bg-cyan-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">8</div>
+        <div class="bg-teal-500 h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56">9</div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+        <div class="bg-green-500 h-24 flex items-center justify-center text-white text-2xl">
+          3
+        </div>
+        <div class="bg-blue-500 h-24 flex items-center justify-center text-white text-2xl">
+          4
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Stock;
