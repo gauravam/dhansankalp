@@ -1,0 +1,62 @@
+import { useRouter } from "next/router";
+import { stockData } from "@/constants/stockdata"; // Check the import path
+import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+
+const Stock = () => {
+  const router = useRouter();
+  const { stock } = router.query;
+
+  const temp = stockData[2];
+  console.log(temp);
+
+  const formatAnalysis = (analysis) => {
+    return analysis.split("\n").map((paragraph, index) => {
+      return <p key={index}>{paragraph}</p>;
+    });
+  };
+  const formatAnalysisMD = (analysis) => {
+    return <ReactMarkdown>{analysis}</ReactMarkdown>;
+  };
+
+  return (
+    <div class="bg-gray-100">
+      <div class="max-w-lg mx-auto my-10 bg-white rounded-lg shadow-md p-5">
+        <div class="text-center">
+          {stock}
+          <Image
+            class="rounded-full mx-auto"
+            src={temp.Img}
+            alt="Profile picture"
+            width={60}
+            height={60}
+          />
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold mt-3">
+            {temp.Name}
+          </h2>
+          <h2 class="text-gray-600 mt-1 font-semibold">{temp.Sector}</h2>
+        </div>
+
+        <div class="mt-5 px-4 lg:px-10">
+          <div class="text-center">
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold ">
+              Growth Rate - {temp.TechincalRating}
+              {temp.TechincalRating === 1 && " - 😞"}
+              {temp.TechincalRating === 2 && " - 😐"}
+              {temp.TechincalRating === 3 && " - 🙂"}
+              {temp.TechincalRating === 4 && " - 😊"}
+            </h3>
+            <div className="mt-5">
+              <h2 className="mb-5">
+                Recent Results and Future plans Summarisation from Concalls
+              </h2>
+              {formatAnalysisMD(temp.ConCallAnalysis)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Stock;
